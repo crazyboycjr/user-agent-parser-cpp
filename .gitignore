@@ -1,0 +1,6 @@
+*~
+res
+hive-query.txt
+*.swp
+*.o
+parser
