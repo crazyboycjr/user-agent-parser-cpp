@@ -788,7 +788,7 @@ Lenovo:
   regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet'
   device: 'smartphone'
   models:
-    - regex: 'Lenovo (B[0-9]+[^/;]*) Build'
+    - regex: '(?:Lenovo (B[0-9]+[^/;]*)|IdeaTab[\- ]?(.*)) Build'
       model: 'IdeaTab \1'
       device: 'tablet'
     - regex: 'ThinkPadTablet_(A[0-9]{3})_'
@@ -800,7 +800,7 @@ Lenovo:
     - regex: 'IdeaPad ?([^;/]*) Build'
       model: 'IdeaPad \1'
       device: 'tablet'
-    - regex: 'Lenovo ([^/;]*) Build'
+    - regex: 'Lenovo[ _]([^/;]*) Build'
       model: '\1'
     - regex: 'IdeaTab[ \-_]?([a-z0-9]+)'
       model: 'IdeaTab \1'
@@ -809,6 +809,13 @@ Lenovo:
       model: 'Yoga Tablet\1'
       device: 'tablet'
     - regex: '(?:LNV-|Lenovo-)?Lenovo[ \-_]([a-z0-9_+\-]+)'
+      model: '\1'
+
+    - regex: 'LENOVO; ([^;]+)'
+      model: '\1'
+    - regex: 'Lenovo[ \-_]?([A-Z0-9a-z_\-+]+)(?:/| Linux)'
+      model: '\1'
+    - regex: 'LENOVO Lenovo ([^\)]+)'
       model: '\1'
 
 # lg
