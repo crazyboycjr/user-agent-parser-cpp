@@ -13,9 +13,12 @@ void doTest() {
 		UAParser::Parser parser(&config, teststr);
 
 		printf("%d\n", ++cnt);
-		printf("OSname:%s\t%s\tClient:%s\t%s\tDevice:%s\t%s\t%s\n", parser.getOS().name.c_str(), parser.getOS().version.c_str(),
-				parser.getBrowser().name.c_str(), parser.getBrowser().version.c_str(),
-				parser.getMobile().brand.c_str(), parser.getMobile().type.c_str(), parser.getMobile().model.c_str());
+		printf("OSname:%s\t%s\t", parser.getOS().name.c_str(), parser.getOS().version.c_str());
+		printf("Client:%s\t%s\t", parser.getBrowser().name.c_str(), parser.getBrowser().version.c_str());
+		printf("Device:%s\t%s\t%s\n", parser.getMobile().brand.c_str(), parser.getMobile().type.c_str(), parser.getMobile().model.c_str());
+//		printf("OSname:%s\t%s\tClient:%s\t%s\tDevice:%s\t%s\t%s\n", parser.getOS().name.c_str(), parser.getOS().version.c_str(),
+//				parser.getBrowser().name.c_str(), parser.getBrowser().version.c_str(),
+//				parser.getMobile().brand.c_str(), parser.getMobile().type.c_str(), parser.getMobile().model.c_str());
 		//trace(parser.getOS().toString(), parser.getBrowser().toString(),
 		//		parser.getMobile().toString());
 	}

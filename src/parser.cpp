@@ -203,6 +203,13 @@ Mobile_t Parser::getMobile() {
 		}
 	}
 
+	/* 这里为大多数情况做一些强制性判断 */
+	if (!OS.isNull && OS.name == "iOS" && mobile.brand != "Apple") {
+		mobile.brand = "Apple";
+		mobile.type = "smartphone";
+		mobile.model = "iPhone";
+	}
+
 	replaceAll(mobile.model, '_', '-');
 	mobile.isNull = false;
 	return mobile;
