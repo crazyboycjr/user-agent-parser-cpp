@@ -124,7 +124,10 @@ Browser_t Parser::getBrowser() {
 	if (!browser.isNull) {
 		return browser;
 	}
-	string prefix = text.substr(0, text.find(' '));
+	size_t pos = text.find(' ');
+	if (pos == string::npos && text.find(';') != string::npos)
+		pos = text.find(';');
+	string prefix = text.substr(0, pos);
 	browser.name = prefix;
 	browser.version = "";
 
@@ -161,8 +164,8 @@ Mobile_t Parser::getMobile() {
 				reg = config->mobiles[i].models[j].reg;
 
 				if (reg.search(text)) {
-					mobile.type = config->mobiles[i].models[j].model.length() > 1
-						? config->mobiles[i].models[j].model : "";
+					mobile.type= config->mobiles[i].models[j].type.length() > 1
+						? config->mobiles[i].models[j].type : mobile.type;
 					expand(&reg, config->mobiles[i].models[j].model, mobile.model, text);
 					break;
 				}
@@ -201,6 +204,13 @@ Mobile_t Parser::getMobile() {
 			if ((pos = tmp.find(' ')) >= 0)
 				mobile.model = tmp.substr(pos + 1);
 		}
+	}
+
+	/* 这里为大多数情况做一些强制性判断 */
+	if (!OS.isNull && OS.name == "iOS" && mobile.brand != "Apple") {
+		mobile.brand = "Apple";
+		mobile.type = "smartphone";
+		mobile.model = "iPhone";
 	}
 
 	replaceAll(mobile.model, '_', '-');

@@ -72,7 +72,7 @@ ConfigLoader::ConfigLoader(const string& file_os, const string& file_browser, co
 				model.reg = pcrepp::Pcre(restr, "g");
 				it.second()["models"][i]["model"] >> model.model;
 				if (const YAML::Node *type = it.second()["models"][i].FindValue("device")) {
-					*type >> mobileConfig.type;
+					*type >> model.type;
 				}
 				mobileConfig.models.push_back(model);
 			}
