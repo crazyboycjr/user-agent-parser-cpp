@@ -298,7 +298,20 @@ Vivo:
     - regex: '(?:VIV-|BBG-)?vivo (.+)[ _].*(_weibo_|_sinanews_)'
       model: 'Vivo \1'
 
-    - regex: 'AiMeiTuan.*(?:VIV-|BBG-)?vivo ([a-zA-Z0-9]+)[ \-]'
+    - regex: 'AiMeiTuan.*(?:VIV-|BBG-)?vivo ([a-zA-Z0-9\+]+)[ \-]'
+      model: 'Vivo \1'
+
+    - regex: 'Android_UnMap%7Evivo\+([A-Za-z0-9\+]+)%'
+      model: 'Vivo \1'
+    - regex: '[Aa]ndroid_Agent~vivo ([A-Za-z0-9\+ ]+)\~'
+      model: 'Vivo \1'
+    - regex: 'vivo ([A-Za-z0-9\+ ]+),\d+\*\d+'
+      model: 'Vivo \1'
+    - regex: 'vivo-(.*)__sinanews'
+      model: 'Vivo \1'
+    - regex: 'yk_acfun.*vivo (.*)'
+      model: 'Vivo \1'
+    - regex: 'ting.*vivo%2B(.*)(?:%2B|%2C)'
       model: 'Vivo \1'
 
 # Cherry Mobile
