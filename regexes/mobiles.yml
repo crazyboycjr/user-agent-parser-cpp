@@ -763,6 +763,13 @@ Huawei:
     - regex: 'Huawei; ([a-z0-9 \-]+)'
       model: '\1'
 
+    - regex: 'Huawei HUAWEI ([A-Z0-9a-z]+-?[a-zA-Z0-9]+) '
+      model: '\1'
+    - regex: 'stagefright.*Huawei ([A-Z0-9a-z]+-?[a-zA-Z0-9]+) '
+      model: '\1'
+    - regex: '\(Huawei;(?:HUAWEI )?([A-Z0-9a-z]+-?[a-zA-Z0-9]+)\)'
+      model: '\1'
+
 # lenovo
 Lenovo:
   regex: '(?:LNV-)?Lenovo|IdeaTab|IdeaPad|Thinkpad|Yoga Tablet'
