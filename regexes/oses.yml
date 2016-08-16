@@ -81,15 +81,19 @@
 ##########
 # Android
 ##########
-- regex: '(?:(?:Orca-)?Android|Adr)[ /](?:[a-z]+ )?(\d+[\.\d]+)'
+- regex: '(?:(?:Orca-)?[Aa]ndroid|Adr)[ /](?:[a-z]+ )?(\d+[\.\d]+)'
   name: 'Android'
   version: '\1'
   
   
-- regex: 'Android|Silk-Accelerated=[a-z]{4,5}'
+- regex: '[Aa]ndroid|Silk-Accelerated=[a-z]{4,5}'
   name: 'Android'
   version: ''
   
+- regex: '.*MIUI.*'
+  name: 'Android'
+  version: ''
+
   
 ##########
 # AmigaOS

@@ -19,7 +19,7 @@ testcase := res
 
 ##### rules for building the project #####
 
-parser: $(INCLUDE_DIR)/parser.h $(LIB_DIR)/libuaparser.a $(LIB_DIR)/libpcre++.a $(LIB_DIR)/libyaml-cpp.a
+parser: $(INCLUDE_DIR)/parser.h $(SRC_DIR)/bootstrap.cpp $(LIB_DIR)/libuaparser.a $(LIB_DIR)/libpcre++.a $(LIB_DIR)/libyaml-cpp.a
 	$(CC) $(SRC_DIR)/bootstrap.cpp -o parser -I$(INCLUDE_DIR) -L$(LIB_DIR) -luaparser $(LD_FLAGS)
 
 parser.o: $(INCLUDE_DIR)/debug.h $(INCLUDE_DIR)/common.h $(INCLUDE_DIR)/pcre++.h $(INCLUDE_DIR)/configloader.h $(SRC_DIR)/parser.cpp configloader.o
