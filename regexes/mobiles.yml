@@ -55,7 +55,7 @@ HTC:
       model: '\1 (Sprint)'
     - regex: 'HTC(?:[\-/ ])?([a-z0-9\-_]+)'
       model: '\1'
-    - regex: 'HTC;(?: )?([a-z0-9 ]+)'
+    - regex: 'HTC;(?: )?([A-Za-z0-9 ]+)'
       model: '\1'
     - regex: '(Desire|Sensation|Evo ?3D|IncredibleS|Wildfire|Butterfly)[ _]?([^;/]+) Build'
       model: '\1 \2'
@@ -66,6 +66,11 @@ HTC:
     - regex: '(ADR[a-z0-9]+)'
       model: '\1'
     - regex: '(One M8)'
+      model: '\1'
+
+    - regex: 'Youku.*HTC(.+)'
+      model: '\1'
+    - regex: 'HTC([A-Za-z0-9_+\-]+)/'
       model: '\1'
 
 # NOKIA
