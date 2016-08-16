@@ -4,4 +4,4 @@ hive-query.txt
 *.swp
 *.o
 parser
-libuaparser.a
+lib/libuaparser.a
