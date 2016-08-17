@@ -333,16 +333,18 @@ Vivo:
       device: 'tablet'
 # Coolpad
 Coolpad:
-  regex: '(?:YL-)?Coolpad|8190Q[ ;/\)]|8295 Build'
+  regex: '(?:YL-)?[Cc]ool[Pp]ad|8190Q[ ;/\)]|8295 Build'
   device: 'smartphone'
   models:
     - regex: '8190Q[ ;/\)]'
       model: '8190Q'
     - regex: '8295 Build'
       model: '8295'
-    - regex: '(?:YL-)?Coolpad[ _\-]?([^/;]+) Build'
+    - regex: '(?:YL-)?[Cc]ool[Pp]ad(?:\*[Cc]oolpad)?[ _\-]?([^/;]+) Build'
       model: '\1'
-    - regex: '(?:YL-)?Coolpad[ _\-]?([a-z0-9\-]+)'
+    - regex: '(?:YL-)?[Cc]ool[Pp]ad[ _\-]?([a-z0-9\-]+)'
+      model: '\1'
+    - regex: '(?:YL-)?[Cc]oolpad\*[ _\-]?([a-z0-9\-]+)'
       model: '\1'
 
 
@@ -721,7 +723,7 @@ Hisense:
 
 # Huawei
 Huawei:
-  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]|(?:H60-L(?:01|02|03|04|11|12)|H30-(?:C00|L01M?|L02|U10|T00|T10)|G621-TL00M?|PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)|SCL-(?:AL00|CL00|TL00H?)|CH(?:E2?|M)-[CUT]L00[HM]?|CHE1-CL[12]0|CHE2-L11|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508)|HUAWEI (?:NXT-(?:AL10|CL00|DL00|TL00)))[);/ ]?)|Build/H(?:UAWEI|uawei)([A-Za-z0-9\-]+)[ );]'
+  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]|(?:H60-L(?:01|02|03|04|11|12)|H30-(?:C00|L01M?|L02|U10|T00|T10)|G621-TL00M?|PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)|SCL-(?:AL00|CL00|TL00H?)|CH(?:E2?|M)-[CUT]L00[HM]?|CHE1-CL[12]0|CHE2-L11|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508)|HUAWEI[ _]?(?:(?:ALE|NXT)-(?:AL10|CL00|DL00|TL00)))[);/ ]?)|Build/H(?:UAWEI|uawei)([A-Za-z0-9\-]+)[ );]'
   device: 'smartphone'
   models:
     - regex: 'U(8230|8661|8667)[);/ ]?'
