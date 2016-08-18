@@ -723,7 +723,7 @@ Hisense:
 
 # Huawei
 Huawei:
-  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]|(?:H60-L(?:01|02|03|04|11|12)|H30-(?:C00|L01M?|L02|U10|T00|T10)|G621-TL00M?|PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)|SCL-(?:AL00|CL00|TL00H?)|CH(?:E2?|M)-[CUT]L00[HM]?|CHE1-CL[12]0|CHE2-L11|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508)|HUAWEI[ _]?(?:(?:ALE|NXT)-(?:AL10|CL00|DL00|TL00)))[);/ ]?)|Build/H(?:UAWEI|uawei)([A-Za-z0-9\-]+)[ );]'
+  regex: '(HW-)?(?:Huawei|Ideos|Honor[ _]|(?:H60-L(?:01|02|03|04|11|12)|H30-(?:C00|L01M?|L02|U10|T00|T10)|G621-TL00M?|PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)|SCL-(?:AL00|CL00|TL00H?)|CH(?:E2?|M)-[CUT]L00[HM]?|CHE1-CL[12]0|CHE2-L11|U(?:8230|8500|8661|8665|8667|8800|8818|8860|9200|9508)|HUAWEI[ _]?(?:(?:ALE|NXT)-(?:AL10|CL00|DL00|TL00)))[);/ ]?)|Build/H(?:UAWEI|uawei)([A-Za-z0-9\-]+)[ );]|HUAWEI'
   device: 'smartphone'
   models:
     - regex: 'U(8230|8661|8667)[);/ ]?'
@@ -776,7 +776,7 @@ Huawei:
     - regex: '(?:HUAWEI )?([A-Z]{2,3}-(?:AL10|CL00|DL00|TL00|CL10))(?: Build|;)?'
       model: '\1'
 
-    - regex: 'Huawei[ _\-]?([^/;]*) Build'
+    - regex: '(?:Huawei|HUAWEI)[ _\-]?([^/;]*) Build'
       model: '\1'
     - regex: '(?:HW-)?Huawei(?:/1\.0/0?(?:Huawei))?[_\- /]?([a-z0-9\-_]+)'
       model: '\1'
@@ -788,6 +788,11 @@ Huawei:
     - regex: 'stagefright.*Huawei ([A-Z0-9a-z]+-?[a-zA-Z0-9]+) '
       model: '\1'
     - regex: '\(Huawei;(?:HUAWEI )?([A-Z0-9a-z]+-?[a-zA-Z0-9]+)\)'
+      model: '\1'
+
+    - regex: 'HUAWEI; ([^)]+)\)'
+      model: '\1'
+    - regex: 'Mozilla.*; ?(?:HW-)?HUAWEI[ _\-]([^/]+)/'
       model: '\1'
 
 # lenovo
@@ -970,7 +975,7 @@ Philips:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG|Maple |SC-(?:02C|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC'
+  regex: 'SAMSUNG|Samsung|Maple |SC-(?:02C|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -1364,6 +1369,8 @@ Samsung:
       device: 'tablet'
       model: '\1'
     - regex: '(?:SAMSUNG|samsung)[_ \-]?(.*+) Build'
+      model: '\1'
+    - regex: 'Mozilla.*; ?([a-zA-Z0-9\-_\+]+) Build'
       model: '\1'
 
 # Kindle
