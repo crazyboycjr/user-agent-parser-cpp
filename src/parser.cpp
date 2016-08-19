@@ -173,6 +173,13 @@ Mobile_t Parser::getMobile() {
 		}
 	}
 
+	// 对杂牌的特殊处理
+	if (mobile.brand == "Misc") {
+		mobile.brand = mobile.model;
+		mobile.model = mobile.type;
+		mobile.type = "smartphone";
+	}
+
 	/*
 	 * Do some polish
 	 */
