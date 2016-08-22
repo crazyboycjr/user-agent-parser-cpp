@@ -167,12 +167,13 @@ Mobile_t Parser::getMobile() {
 					mobile.type= config->mobiles[i].models[j].type.length() > 1
 						? config->mobiles[i].models[j].type : mobile.type;
 					expand(&reg, config->mobiles[i].models[j].model, mobile.model, text);
-					break;
+					goto done;
 				}
 			}
 		}
 	}
 
+done:
 	// 对杂牌的特殊处理
 	if (mobile.brand == "Misc") {
 		mobile.brand = mobile.model;
