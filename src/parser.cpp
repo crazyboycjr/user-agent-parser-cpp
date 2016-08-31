@@ -179,6 +179,8 @@ done:
 		mobile.brand = mobile.model;
 		mobile.model = mobile.type;
 		mobile.type = "smartphone";
+		if (mobile.model == "smartphone")
+			mobile.model = "";
 	}
 
 	/*
