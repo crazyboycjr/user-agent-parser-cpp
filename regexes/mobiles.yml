@@ -331,6 +331,7 @@ Vivo:
     - regex: '(Fusion Bolt)'
       model: '\1'
       device: 'tablet'
+ 
 # Coolpad
 Coolpad:
   regex: '(?:YL-)?[Cc]ool[Pp]ad|8190Q[ ;/\)]|8295 Build'
@@ -340,7 +341,7 @@ Coolpad:
       model: '8190Q'
     - regex: '8295 Build'
       model: '8295'
-    - regex: '(?:YL-)?[Cc]ool[Pp]ad(?:\*[Cc]oolpad)?[ _\-]?([^/;]+) Build'
+    - regex: '(?:YL-)?[Cc]ool[Pp]ad(?:\*[Cc]oolpad)?[ _\-]?([^/;]+?) (MIUI|Build)'
       model: '\1'
     - regex: '(?:YL-)?[Cc]ool[Pp]ad[ _\-]?([a-z0-9A-Z\-]+)'
       model: '\1'

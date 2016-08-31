@@ -78,6 +78,23 @@
   name: 'MocorDroid'
   version: '\1'
 
+
+##########
+# MIUI
+# ########
+- regex: '(?:MIUI|Miui|miui) (\d+(?:\.\d+)*)'
+  name: 'MIUI'
+  version: '\1'
+
+- regex: '(?:MIUI|Miui|miui)(?:/(V?\d+(?:\.\d+)*))'
+  name: 'MIUI'
+  version: '\1'
+
+- regex: 'MIUI|Miui|miui'
+  name: 'MIUI'
+  version: ''
+
+
 ##########
 # Android
 ##########
@@ -90,10 +107,6 @@
   name: 'Android'
   version: ''
   
-- regex: '.*MIUI.*'
-  name: 'Android'
-  version: ''
-
   
 ##########
 # AmigaOS
