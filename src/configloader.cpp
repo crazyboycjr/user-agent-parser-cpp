@@ -7,6 +7,21 @@ namespace UAConfig {
 using std::string;
 using std::vector;
 
+/* We must ensure the a is ahead of b when recognizing. */
+bool ConfigLoader::ensure(vector<MobileConfig> &mobiles, const string &a, const string &b) {
+	int lef = -1, rig = -1;
+	for (size_t i = 0; i < mobiles.size() && (lef < 0 || rig < 0); ++i) {
+		if (mobiles[i].brand == a)
+			lef = i;
+		if (mobiles[i].brand == b)
+			rig = i;
+	}
+	if (lef < 0 || rig < 0) return false;
+	if (lef > rig)
+		std::swap(mobiles[lef], mobiles[rig]);
+	return true;
+}
+
 ConfigLoader::ConfigLoader(const string& file_os, const string& file_browser, const string& file_mobile) {
 
 	android_reg = pcrepp::Pcre("[Aa]ndroid ?\\d+(?:\\.\\d+)*[; ]*(.*)\\)", "g");
@@ -80,6 +95,8 @@ ConfigLoader::ConfigLoader(const string& file_os, const string& file_browser, co
 			mobiles.push_back(mobileConfig);
 		}
 	}
+
+	assert(ensure(mobiles, "Zhuomi", "Xiaomi"));
 
 }
 

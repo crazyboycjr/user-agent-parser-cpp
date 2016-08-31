@@ -175,7 +175,7 @@ Mobile_t Parser::getMobile() {
 
 done:
 	// 对杂牌的特殊处理
-	if (mobile.brand == "Misc") {
+	if (mobile.brand == "ZZMisc") {
 		mobile.brand = mobile.model;
 		mobile.model = mobile.type;
 		mobile.type = "smartphone";

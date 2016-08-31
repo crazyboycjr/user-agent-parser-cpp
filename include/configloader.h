@@ -34,6 +34,8 @@ public:
 	vector<OSConfig> oses;
 	vector<BrowserConfig> browsers;
 	vector<MobileConfig> mobiles;
+private:
+	bool ensure(vector<MobileConfig> &, const string &, const string &);
 };
 
 }

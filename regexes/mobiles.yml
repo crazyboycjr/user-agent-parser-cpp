@@ -68,7 +68,7 @@ HTC:
     - regex: '(One M8)'
       model: '\1'
 
-    - regex: 'Youku.*HTC(.+)'
+    - regex: 'Youku.*HTC ?(.+)\t'
       model: '\1'
     - regex: 'HTC([A-Za-z0-9_+\-]+)/'
       model: '\1'
@@ -1433,6 +1433,14 @@ TCL:
     - regex: 'TCL[ -]([a-z0-9]+)'
       model: '\1'
 
+# Zhuomi 应当放在 Xiaomi 前面识别
+Zhuomi:
+    regex: 'ZHUOMI'
+    device: 'smartphone'
+    models:
+        - regex: 'ZHUOMI'
+          model: 'ZHUOMI'
+
 #Xiaomi
 Xiaomi:
   regex: 'M[Ii][ -]?[A-Za-z0-9]+ (Build|MIUI)|Xiaomi|(MI [A-Za-z0-9]+|MI-One[ _]?[A-Za-z0-9]+)([);/ ]| ?MIUI)|HM ([^/;]+) (Build|MIUI)|(2014501|2014011|201481[13]|201302[23]|2013061) (Build|MIUI)|Redmi'
@@ -1585,9 +1593,9 @@ Letv:
       model: '\1'
 
 
-# 杂牌手机，用另一套规则来识别
+# 杂牌手机，用另一套规则来识别，并且要放到最后识别
 
-Misc:
+ZZMisc:
     regex: 'Mozilla.*Android ?\d(?:\.\d)+; ?(.+) Build/'
     device: 'smartphone'
     models:
