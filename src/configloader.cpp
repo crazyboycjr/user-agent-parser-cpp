@@ -97,6 +97,7 @@ ConfigLoader::ConfigLoader(const string& file_os, const string& file_browser, co
 	}
 
 	assert(ensure(mobiles, "Zhuomi", "Xiaomi"));
+	assert(ensure(mobiles, "Meimi", "Xiaomi"));
 
 }
 
