@@ -761,6 +761,7 @@ Huawei:
       model: 'Honor 6'
     - regex: '(?:Honor_|HW-)?PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)[);/ ]?'
       model: 'Honor 7'
+
     - regex: '(MediaPad[^/;]*) Build'
       device: 'tablet'
       model: '\1'
@@ -773,6 +774,14 @@ Huawei:
     - regex: 'ATH-AL00'
       model: 'Honor 7I'
 
+    - regex: 'Huawei[\-_ ](.*)__sinanews__'
+      model: '\1'
+    - regex: 'AndroidSDK_\d+_Huawei_([A-Za-z0-9\-]+)_'
+      model: '\1'
+
+    - regex: 'cn.hi.wifi/78 [(]([^;]+);'
+      model: '\1'
+
     - regex: 'HUAWEI (NXT-(?:AL10|CL00|DL00|TL00))(?: Build|;)'
       model: '\1'
     - regex: 'Build/H(?:UAWEI|uawei)([A-Za-z0-9\-]+)[ );]'
@@ -780,9 +789,12 @@ Huawei:
     - regex: '(?:HUAWEI )?([A-Z]{2,3}-(?:AL10|CL00|DL00|TL00|CL10))(?: Build|;)?'
       model: '\1'
 
-    - regex: '(?:Huawei|HUAWEI)[ _\-]?([^/;]*) Build'
+    - regex: 'QIYIVideo.*Huawei-([A-Z\-0-9]+)\)'
       model: '\1'
-    - regex: '(?:HW-)?Huawei(?:/1\.0/0?(?:Huawei))?[_\- /]?([a-z0-9\-_]+)'
+    - regex: 'Huawei-(.*)__weibo__'
+      model: '\1'
+
+    - regex: '(?:Huawei|HUAWEI)[ _\-]?([^/;]*) Build'
       model: '\1'
     - regex: 'Huawei; ([a-z0-9 \-]+)'
       model: '\1'
@@ -798,6 +810,10 @@ Huawei:
       model: '\1'
     - regex: 'Mozilla.*; ?(?:HW-)?HUAWEI[ _\-]([^/]+)/'
       model: '\1'
+    - regex: '(?:HW-)?Huawei(?:/1\.0/0?(?:Huawei))[_\- /]?([a-z0-9\-_]+)'
+      model: '\1'
+
+
 
 # lenovo
 Lenovo:
@@ -1318,7 +1334,7 @@ Samsung:
       device: 'phablet'
 
     - regex: 'GT- ([A-Za-z0-9\-_]+)'
-      model: '\1'
+      model: 'GT-\1'
       device: 'phablet'
 
     # explicit feature phones
@@ -1603,6 +1619,27 @@ Letv:
       model: '\1'
 
 
+GiONEE:
+    regex: 'GiONEE'
+    device: 'smartphone'
+    models:
+      - regex: 'GiONEE_([A-Z0-9]+)/'
+        model: '\1'
+
+ASUS:
+    regex: 'ASUS'
+    device: 'smartphone'
+    models:
+      - regex: 'ASUS_([A-Z0-9]+)/'
+        model: '\1'
+ 
+CMCC:
+    regex: 'CMCC|CMDC'
+    device: 'smartphone'
+    models:
+      - regex: 'CM[CD]C ([A-Z0-9]+)_LTE ?/'
+        model: '\1'
+
 # 杂牌手机，用另一套规则来识别，并且要放到最后识别
 
 ZZMisc:
@@ -1656,7 +1693,7 @@ ZZMisc:
         model: 'ASUS'
       - regex: 'GN9000L'
         device: 'GN9000L'
-        model: 'Jinli'
+        model: 'GiONEE'
       - regex: 'N5116'
         device: 'N5116'
         model: 'OPPO'
@@ -1758,13 +1795,13 @@ ZZMisc:
         model: 'Elephone'
       - regex: 'GN151'
         device: 'GN151'
-        model: 'Jinli'
+        model: 'GiONEE'
       - regex: 'GN715'
         device: 'GN715'
-        model: 'Jinli'
+        model: 'GiONEE'
       - regex: 'GN9000'
         device: 'GN9000'
-        model: 'Jinli'
+        model: 'GiONEE'
       - regex: 'H1S'
         device: 'H1S'
         model: 'koobee'
