@@ -3,7 +3,7 @@
 .PHONY: gdb test run submit clean
 
 CC := g++
-CFLAGS := -Wall -c -std=c++0x
+CFLAGS := -Wall -c -g -O2 -std=c++0x
 CFLAGS_EXTRA := -ggdb3 -O2
 
 SRC_DIR := src

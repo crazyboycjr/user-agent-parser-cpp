@@ -223,8 +223,84 @@ done:
 		mobile.model = "iPhone";
 	}
 
+	/* DO more polish */
+	polish(mobile);
+
 	replaceAll(mobile.model, '_', '-');
 	mobile.isNull = false;
 	return mobile;
 }
 
+
+/*
+Coolpad Y70-c
+Coolpad 
+rules:
+(1). trim空格和tab还有-_+
+(2). 开头'+Coolpad%2B'去掉
+(3). 把'Coolpad '头去掉
+(4). 最后一个字符toupper
+(5). 中间+,-,' '都替换成-
+
+Huawei,Vivo:
+(1). +HUAWEI%2B去掉
+(2). 开头是Huawei或者HUAWEI或者Vivo就去掉然后trim一下
+
+所有手机
+结尾是Build就去掉并trim
+*/
+
+inline bool myisspace(char ch) {
+	return ch == ' ' || ch == '\t' || ch == '+' || ch == '-' || ch == '_';
+}
+
+string mytrim(string &str) {
+	int start = 0, len = str.length();
+	for (string::const_iterator it = str.begin(); it != str.end() && myisspace(*it); ++it, ++start);
+	for (string::const_reverse_iterator it = str.rbegin(); it != str.rend() && myisspace(*it); ++it, --len);
+	return str.substr(start, len - start);
+}
+
+void cutPrefix(string &str, const string &prefix) {
+	if (str.length() < prefix.length()) return;
+	if (str.substr(0, prefix.length()) == prefix) {
+		str = str.substr(prefix.length(), str.length() - prefix.length());
+		str = mytrim(str);
+	}
+}
+
+void cutSuffix(string &str, const string &suffix) {
+	if (str.length() < suffix.length()) return;
+	if (str.substr(str.length() - suffix.length(), suffix.length()) == suffix) {
+		str = str.substr(0, str.length() - suffix.length());
+		str = mytrim(str);
+	}
+}
+
+void Parser::polish(Mobile_t &mobile) {
+	if (mobile.model.length() < 2) return;
+	if (mobile.brand == "Coolpad") {
+		mobile.model = mytrim(mobile.model);
+		cutPrefix(mobile.model, "+Coolpad%2B");
+		cutPrefix(mobile.model, "Coolpad ");
+		{
+			auto ch = &mobile.model[mobile.model.length() - 1];
+			*ch = toupper(*ch);
+		}
+		for (size_t i = 0; i < mobile.model.length(); i++) {
+			auto ch = &mobile.model[i];
+			if (*ch == '+' || *ch == ' ' || *ch == '_')
+				*ch = '-';
+		}
+	}
+	if (mobile.brand == "Huawei" || mobile.brand == "Vivo") {
+		cutPrefix(mobile.model, "+HUAWEI%2B");
+		cutPrefix(mobile.model, "Huawei");
+		cutPrefix(mobile.model, "HUAWEI");
+		cutPrefix(mobile.model, "Vivo");
+		cutPrefix(mobile.model, "vivo");
+		cutSuffix(mobile.model, ") AppleWebKit");
+	}
+	cutSuffix(mobile.model, "Build");
+	mobile.model = mytrim(mobile.model);
+}

@@ -74,6 +74,7 @@ private:
 	int expand(const pcrepp::Pcre *, const string &, string &);
 	void expand(const pcrepp::Pcre *, const string &, string &, const string &);
 	int replaceAll(string &, char, char);
+	void polish(Mobile_t &);
 
 private:
 	bool configLoaded;

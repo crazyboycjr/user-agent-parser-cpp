@@ -98,6 +98,8 @@ ConfigLoader::ConfigLoader(const string& file_os, const string& file_browser, co
 
 	assert(ensure(mobiles, "Zhuomi", "Xiaomi"));
 	assert(ensure(mobiles, "Meimi", "Xiaomi"));
+	assert(ensure(mobiles, "ZZMisc", "GiONEE"));
+	assert(ensure(mobiles, "ZZMisc", "ASUS"));
 
 }
 
