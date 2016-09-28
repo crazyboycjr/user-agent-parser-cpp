@@ -68,12 +68,39 @@ int main() {
 	return 0;
 }
 ```
-In this demo, first we use
+You can customize your ouput.
+Demo Output:
+```
+parser.getOS().toString() : Android 6.0 |  parser.getBrowser().toString() : Android Browser  |  parser.getMobile().toString() : Huawei NXT-TL00
+parser.getOS().toString() : iOS 9.3.2 |  parser.getBrowser().toString() : WeChat/6.3.16.17  |  parser.getMobile().toString() : Apple 
+```
+
+In this demo, firstly we use
 ```cpp
 	UAConfig::ConfigLoader config("regexes/oses.yml", "regexes/browsers.yml", "regexes/mobiles.yml");
 ```
-to load regexes, and pass its reference to `UAParser::Parser parser`.
-下次再写...
+to load regexes config. Secondly we use
+```cpp
+UAParser::Parser parser(&config, teststr);
+```
+to pass its reference to `UAParser::Parser parser` as well as the string to be parsed.
+We can also use
+```cpp
+parser.setConfig(&config);
+parser.setText(teststr);
+```
+to pass config and the string to `parser`.
+We __must__ reconstruct the `UAParser::Parser` class every time we need to parse a new UA string.
+After both `setText()` and `setConfig()` are called, we can use
+```cpp
+parser.getOS()
+parser.getBrowser()
+parser.getMobile()
+```
+to obtain one of `OS_t`, `Browser_t` or `Mobile_t`, which contains the result of this recognition.
+Both `OS_t` and `Browswer_t` have string member `name` and `version`.
+`Mobile_t` has string member `brand`, `type` and `model`.
+All of these structs have a method `toString()`, which concats its name + version or brand + model with a space and return a `std::string`.
 
 ## LICENSE
 [The MIT License (MIT)](https://opensource.org/licenses/MIT)
