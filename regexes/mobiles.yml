@@ -318,6 +318,8 @@ Vivo:
       model: 'Vivo \1'
     - regex: 'ting.*vivo%2B(.*)(?:%2B|%2C)'
       model: 'Vivo \1'
+    - regex: 'bd_.+_(.+)[ \t]?'
+      model: 'Vivo \1'
 
 # Cherry Mobile
 'Cherry Mobile':
@@ -762,6 +764,14 @@ Huawei:
     - regex: '(?:Honor_|HW-)?PLK-(?:AL10|CL00|TL00|TL01H?|UL00|L01)[);/ ]?'
       model: 'Honor 7'
 
+    - regex: 'Huawei-(MediaPad(\+\d+)?)'
+      model: '\1'
+    - regex: 'Huawei_(C[0-9]+)_Build'
+      model: '\1'
+
+    - regex: 'HUAWEI\+MT7-CL00'
+      model: 'MT7-CL00'
+
     - regex: '(MediaPad[^/;]*) Build'
       device: 'tablet'
       model: '\1'
@@ -813,6 +823,11 @@ Huawei:
     - regex: '(?:HW-)?Huawei(?:/1\.0/0?(?:Huawei))[_\- /]?([a-z0-9\-_]+)'
       model: '\1'
 
+    - regex: 'DidaPinche.+HUAWEI ([^\);]+)'
+      model: '\1'
+
+    - regex: 'HONOR_Che2-TL00M_TD'
+      model: 'HONOR Che2-TL00M-TD'
 
 
 # lenovo
@@ -954,6 +969,9 @@ OPPO:
     - regex: '(?:OPPO[ _]?)?N5117[);/ ]'
       model: 'N1 Mini'
 
+    - regex: 'DidaPinche.+OPPO([^\);]+)'
+      model: '\1'
+
     - regex: 'N1T?[);/ ]'
       model: 'N1T'
       device: 'phablet'
@@ -973,6 +991,7 @@ OPPO:
     - regex: 'N1T?'
       model: 'N1T'
       device: 'phablet'
+
 
 # philips
 Philips:
@@ -997,7 +1016,7 @@ Philips:
 
 # Samsung
 Samsung:
-  regex: 'SAMSUNG|Samsung|Maple |SC-(?:02C|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC'
+  regex: 'SAMSUNG|Samsung|Maple |SC-(?:02C|04E|01F)|N[57]100|N5110|N9100|S(?:CH|GH|PH|EC|AM|HV|HW|M)-|SMART-TV|GT-|Galaxy|(?:portalmmm|o2imode)/2\.0 [SZ]|sam[rua]|vollo Vi86[);/ ]|(?:OTV-)?SMT-E5015|ISW11SC|SPH-L720'
   device: 'smartphone'
   models:
     # explicit tv models
@@ -1337,6 +1356,10 @@ Samsung:
       model: 'GT-\1'
       device: 'phablet'
 
+    - regex: 'SPH-L720'
+      model: 'SPH-L720'
+      device: 'smartphone'
+
     # explicit feature phones
     - regex: '(?:SAMSUNG-)?GT-E2152'
       model: 'E2152'
@@ -1518,6 +1541,9 @@ Xiaomi:
     - regex: 'Xiaomi (.+)[ _].*(_weibo_|_sinanews_)'
       model: '\1'
 
+    - regex: 'DidaPinche.+Xiaomi ([^\);]+)'
+      model: '\1'
+
 
 # ZTE
 ZTE:
@@ -1634,9 +1660,11 @@ ASUS:
         model: '\1'
  
 CMCC:
-    regex: 'CMCC|CMDC'
+    regex: 'CMCC|CMDC|M821'
     device: 'smartphone'
     models:
+      - regex: 'M821'
+        model: 'M821'
       - regex: 'CM[CD]C ([A-Z0-9]+)_LTE ?/'
         model: '\1'
 
