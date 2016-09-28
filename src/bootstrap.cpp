@@ -1,12 +1,14 @@
 #include <cstdio>
 #include <parser.h>
+#include <string>
 
 void doTest() {
 
 	const int MAXN = 10000;
 	char teststr[MAXN];
 
-	UAConfig::ConfigLoader config("/home/cjr/Developing/user-agent-parser-cpp/regexes/oses.yml", "/home/cjr/Developing/user-agent-parser-cpp/regexes/browsers.yml", "/home/cjr/Developing/user-agent-parser-cpp/regexes/mobiles.yml");
+	std::string configPath = "/home/cjr/Developing/user-agent-parser-cpp/regexes/";
+	UAConfig::ConfigLoader config(configPath + "oses.yml", configPath + "browsers.yml", configPath + "mobiles.yml");
 	while (fgets(teststr, MAXN, stdin)) {
 		teststr[strlen(teststr) - 1] = '\0';
 		UAParser::Parser parser(&config, teststr);
