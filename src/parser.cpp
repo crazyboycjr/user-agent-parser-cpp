@@ -300,6 +300,13 @@ void Parser::polish(Mobile_t &mobile) {
 		cutPrefix(mobile.model, "Vivo");
 		cutPrefix(mobile.model, "vivo");
 		cutSuffix(mobile.model, ") AppleWebKit");
+		replaceAll(mobile.model, '+', ' ');
+		cutSuffix(mobile.model, "C02B120");
+	}
+	if (mobile.brand == "Sony") {
+		if (mobile.model.substr(0, 8) == "Xperia Z") {
+			mobile.model = "Xperia Z";
+		}
 	}
 	cutSuffix(mobile.model, "Build");
 	mobile.model = mytrim(mobile.model);
