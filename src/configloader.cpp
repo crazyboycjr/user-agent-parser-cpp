@@ -95,12 +95,31 @@ ConfigLoader::ConfigLoader(const string& file_os, const string& file_browser, co
 			mobiles.push_back(mobileConfig);
 		}
 	}
+/*
+struct MobileConfig {
+	pcrepp::Pcre reg;
+	string brand, type;
+	struct Model {
+		pcrepp::Pcre reg;
+		string type, model;
+	};
+	vector<Model> models;
+};
+*/
+
 
 	assert(ensure(mobiles, "Zhuomi", "Xiaomi"));
 	assert(ensure(mobiles, "Meimi", "Xiaomi"));
 	assert(ensure(mobiles, "ZZMisc", "GiONEE"));
 	assert(ensure(mobiles, "ZZMisc", "ASUS"));
 
+
+	for (size_t i = 0; i < mobiles.size(); i++) {
+		for  (int j = 0; j < mobiles[i].models.size(); j++) {
+			printf("%s %s\n",mobiles[i].brand.c_str(),
+					mobiles[i].models[j].model.c_str());
+		}
+	}
 }
 
 }
