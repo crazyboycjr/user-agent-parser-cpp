@@ -1,7 +1,9 @@
+*.a
+libuaparser.a
+lib/libuaparser.a
 *~
 res
 hive-query.txt
 *.swp
 *.o
 parser
-*.a

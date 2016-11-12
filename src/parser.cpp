@@ -226,6 +226,18 @@ done:
 	/* DO more polish */
 	polish(mobile);
 
+	/*
+	 * 如果brand, model都没有识别出来
+	 * 并且OS识别为Android或者Windows Phone
+	 * 就将type=PC的改成type=smartphone
+	 */
+
+	if (mobile.model.length() < 1 && mobile.brand.length() < 1) {
+		if (this->OS.name == "Android" || this->OS.name == "Windows Phone") {
+			mobile.type = "smartphone";
+		}
+	}
+
 	replaceAll(mobile.model, '_', '-');
 	mobile.isNull = false;
 	return mobile;
@@ -310,4 +322,5 @@ void Parser::polish(Mobile_t &mobile) {
 	}
 	cutSuffix(mobile.model, "Build");
 	mobile.model = mytrim(mobile.model);
+
 }
