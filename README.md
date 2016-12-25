@@ -1,5 +1,6 @@
 # User-agent-parser-cpp
 [![License](https://poser.pugx.org/piwik/device-detector/license)](https://packagist.org/packages/piwik/device-detector)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 This tool reads the user-agent field from stdin line-by-line and prints the OS, browser/App and device information to stdout.
